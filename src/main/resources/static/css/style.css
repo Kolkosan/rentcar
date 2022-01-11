@@ -1,0 +1,108 @@
+[class^=swiper-button-] {
+    transition: all 0.3s ease;
+}
+
+.swiper-slide {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    width: 50%;
+    height: 80vh;
+    float: left;
+    transition: opacity 0.6s ease, transform 0.3s ease;
+}
+.swiper-container.nav-slider {
+    width: 10%;
+    padding-left: 5px;
+}
+.swiper-container.nav-slider .swiper-slide {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+.swiper-container.nav-slider .swiper-slide.swiper-slide-active {
+    opacity: 1;
+}
+.swiper-container.nav-slider .swiper-slide .content {
+    width: 10%;
+}
+.swiper-container.nav-slider .swiper-slide .content .title {
+    font-size: 20px;
+}
+.swiper-container:hover .swiper-button-prev,
+.swiper-container:hover .swiper-button-next {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+.swiper-container.loading {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.swiper-slide {
+    overflow: hidden;
+}
+/* Рамеры фоток в рамках */
+.swiper-slide .slide-bgimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.swiper-slide .entity-img {
+    display: none;
+}
+
+/* текст на фото */
+.swiper-slide .content {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    width: 50%;
+    padding-left: 5%;
+    color:#222D3C;
+}
+.swiper-slide .content .title {
+    font-size: 2.6em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+/* доп текс под основным */
+.swiper-slide .content .caption {
+    display: block;
+    font-size: 10px;
+    line-height: 1.4;
+    transform: translateX(50px);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.7s ease;
+}
+.swiper-slide .content .caption.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+/* Расположение кнопки перелистыв */
+[class^=swiper-button-] {
+    width: 40px;
+    opacity: 0;
+    visibility:hidden;
+}
+
+.swiper-button-prev {
+    transform: translateX(50px);
+}
+
+.swiper-button-next {
+    transform: translateX(-50px);
+}

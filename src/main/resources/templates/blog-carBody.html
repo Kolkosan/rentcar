@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+  <title th:text="${title}"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/table.css">
+  <link rel="stylesheet" href="/css/tablebutton.css">
+  <link rel="stylesheet" href="/css/butt.css">
+  <link rel="stylesheet" href="/css/butt2.css">
+  <link rel="stylesheet" href="/css/menuStyle.css">
+  <link rel="stylesheet" href="/css/popUpMenu.css">
+  <link rel="shortcut icon" href="/css/logo.ico">
+</head>
+<body>
+<div th:insert="home::header"></div>
+
+
+
+<div class="container mt-5">
+  <div th:each="el : ${posts}" class="alert alert-info mt-2">
+    <h3><img th:src="${el.photo}" width="260" height="170" alt="car"> </h3>
+    <div>Класс автомобиля:  <a th:text="${el.carcl}"/></div>
+    <div>Коробка передач:  <a th:text="${el.transmission}"/></div>
+    <div>Цена за сутки:  <a th:text="${el.cost_day}"/></div>
+    <div>Первоначальный взнос:  <a th:text="${el.deposit}"/></div>
+    <!--     перебор всех данных-->
+    <a th:href="'/blog/'+${el.id}+'/details'" class="btn btn-warning"> Детальнее</a>
+  </div>
+</div>
+
+
+<br>
+<div th:insert="home::footer"></div>
+</body>
+</html>

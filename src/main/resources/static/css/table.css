@@ -1,0 +1,28 @@
+table.tablemenu {
+    text-decoration: none;
+    text-align: center;
+    width: 2px;
+    border: 0px solid #000;
+    margin: auto;
+}
+
+table.tablemenu th {
+    font-weight: normal;
+    font-size: 30px;
+    color: #55a9e6;
+    background-color: #ffffff;
+}
+
+table.tablemenu td {
+    font-size: 15px;
+    color: #55a9e6;
+}
+
+table.tablemenu td, table.tablemenu th {
+    white-space: pre-wrap;
+    padding: 10px 25px;
+    line-height: 15px;
+    vertical-align: middle;
+    border:0px solid #E0FFFF;
+}
+

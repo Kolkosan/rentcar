@@ -1,0 +1,35 @@
+table.tablemenu {
+    text-decoration: none;
+    border-collapse: collapse;
+    width: 5%;
+    text-align: center;
+}
+
+table.tablemenu th {
+    font-weight: normal;
+    font-size: 30px;
+    color: #55a9e6;
+    background-color: #ffffff;
+}
+
+table.tablemenu td {
+    font-size: 50px;
+    color: #55a9e6;
+}
+
+table.tablemenu td, table.tablemenu th {
+    white-space: pre-wrap;
+    padding: 10px 25px;
+    line-height: 15px;
+    vertical-align: middle;
+    border:2px solid #E0FFFF;
+}
+
+table.tablemenu tr:hover {
+    background-color: #ffffff
+}
+
+table.tablemenu tr:hover td {
+    color: #1d4c6e;
+    cursor: pointer;
+}

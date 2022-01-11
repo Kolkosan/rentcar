@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Новый автомобиль</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/css/tablebutton.css">
+    <link rel="stylesheet" href="/css/butt.css">
+    <link rel="stylesheet" href="/css/butt2.css">
+    <link rel="stylesheet" href="/css/menuStyle.css">
+    <link rel="stylesheet" href="/css/popUpMenu.css">
+    <link rel="shortcut icon" href="/css/logo.ico">
+</head>
+<body>
+<div th:insert="home::header"></div>
+<br>
+    <div class="container mt-5 mb-5">
+        <h1>Добавление статьи</h1>
+        <form th:action="@{/blog/add}" method="post">
+            <form enctype="multipart/form-data" method="post">
+<!--                <p><input type="file" name="photo" multiple><br><br>-->
+                    <input type="text" name="photo" placeholder="Укажите фотографию" class="form-control"><br>
+                    <input type="text" name="brand" placeholder="Введите название марки" class="form-control"><br>
+                    <input type="text" name="carcl" placeholder="Введите класс автомобиля" class="form-control"><br>
+                    <input type="text" name="body" placeholder="Введите тип кузова" class="form-control"><br>
+                    <input type="text" name="seats" placeholder="Введите количество посадочных мест"
+                           class="form-control"><br>
+                    <input type="text" name="prod_date" placeholder="Введите год выпуска" class="form-control"><br>
+                    <input type="text" name="transmission" placeholder="Введите коробку передач"
+                           class="form-control"><br>
+                    <input type="text" name="color" placeholder="Введите цвет" class="form-control"><br>
+                    <input type="text" name="cost_day" placeholder="Введите цена за сутки" class="form-control"><br>
+                    <input type="text" name="deposit" placeholder="Введите первоначальный взнос"
+                           class="form-control"><br>
+                    <!--        textarea - полный текс или тип комент -->
+                    <textarea name="comments" placeholder="Введите комментарий" class="form-control"></textarea><br>
+                <button type="submit" class="btn btn-success">Добавить автомобиль</button>
+                <br>
+            </form>
+        </form>
+    </div>
+
+
+<!--sec:authorize="hasAnyAuthority('ADMIN')"-->
+
+
+<div th:insert="home::footer"></div>
+</body>
+</html>

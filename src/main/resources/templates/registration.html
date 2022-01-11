@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/css/bodyLogin.css">
+
+</head>
+<body>
+<form th:action="@{/userRegister}" method="post" th:object="${user}">
+    <div class="container">
+        <h1>Регистрация</h1>
+        <p>Заполните эту форму для регистрации</p>
+        <hr>
+        <label for="firstName"><b>Имя пользователя</b></label>
+        <div>
+            <input required type="text" th:field="*{name}" id="firstName">
+        </div>
+        <label for="username"><b>Email</b></label>
+        <input th:required type="text" class="form-control" th:field="*{userName}" id="username">
+        <div class="error">
+            <p th:each="err : ${#fields.errors('userName')}" class="alert-danger" th:text="#{${err}}"></p>
+        </div>
+        <label for="password"><b>Пароль</b></label>
+        <input th:required type="password" inputmode="numeric" minlength="8"
+               maxlength="20" size="20" th:field="*{password}" id="password">
+        <div class="error">
+            <p th:each="err : ${#fields.errors('password')}" class="alert-danger" th:text="#{${err}}"></p>
+        </div>
+        <label for="psw-repeat"><b>Повторите пароль</b></label>
+        <input th:required type="psw-repeat" inputmode="numeric" minlength="8"
+               maxlength="20" size="20"
+               th:field="*{password}" id="psw-repeat">
+
+        <div>
+            <input type="submit" class="registerbtn" value="Зарегистрироваться">
+        </div>
+        <div class="container signin">
+            <a th:href="@{/login}">Если есть аккаунт</a>.
+        </div>
+    </div>
+</form>
+</body>
+</html>

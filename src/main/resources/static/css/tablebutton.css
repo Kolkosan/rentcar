@@ -1,0 +1,11 @@
+.tablebutton {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 0px 0px;
+    color: #55a9e6;
+    background: #ffffff;
+    border-radius: 41px;
+    border: 0px solid #ffffff;
+}

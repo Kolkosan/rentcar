@@ -1,0 +1,26 @@
+.Button1 {
+    display: inline-block;cursor: pointer;
+    font-size:17px;text-decoration:none;padding:10px 10%;
+    color:#484848;
+    background:#fafafa;
+    border-radius:0px;
+    border:0px solid #354251;
+    font-family: 'Kurale', serif;
+}
+
+
+.Button1:hover{background:#fafafa;
+    color:#c0a97a;
+    border:0px solid #fafafa;
+    transition: all 0.4s ease;}
+
+
+
+
+
+
+
+
+
+
+

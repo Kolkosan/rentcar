@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Редактирование заявки</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/css/tablebutton.css">
+    <link rel="stylesheet" href="/css/butt.css">
+    <link rel="stylesheet" href="/css/butt2.css">
+    <link rel="stylesheet" href="/css/menuStyle.css">
+    <link rel="stylesheet" href="/css/popUpMenu.css">
+    <link rel="shortcut icon" href="/css/logo.ico">
+
+</head>
+<body>
+<div th:insert="home::header"></div>
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование заявки</h1>
+    <div th:each="el : ${arrange}">
+        <form th:action="@{/blog/{arrangeId}/order-edit(arrangeId=${el.id})}" method="post">
+            <form enctype="multipart/form-data" method="post">
+                <p><input type="hidden" th:value="${el.consideration}"
+                                  name="consideration"
+                                  placeholder="Статус заказа"
+                                  class="form-control"></p>
+                <p>Дата заказа: <input type="date" th:value="${el.orderdate}" name="orderdate" placeholder="Укажите дату заказа"
+                                       class="form-control"></p>
+                <p>Дата возврата: <input type="date" th:value="${el.returndate}" name="returndate" placeholder="Укажите дату возврата"
+                                         class="form-control"></p>
+                <p>Фамилия: <input type="text" th:value="${el.lastname}" name="lastname" placeholder="Введите фамилию"
+                                   class="form-control"></p>
+                <p>Имя: <input type="text" th:value="${el.firstname}" name="firstname" placeholder="Введите имя"
+                               class="form-control"></p>
+                <p>Отчетсво: <input type="text" th:value="${el.patronymic}" name="patronymic"
+                                    placeholder="Введите отчество"
+                                    class="form-control"></p>
+                <p>Email: <input type="text" th:value="${el.email}" name="email" placeholder="Введите Email"
+                                 class="form-control"></p>
+                <p>Номер паспорта: <input type="text" th:value="${el.passnumb}" name="passnumb"
+                                          placeholder="Введите номер паспорта"
+                                          class="form-control"></p>
+                <p>Дата выдачи паспорта: <input type="date" th:value="${el.passissue}" name="passissue"
+                                                placeholder="Введите дату выдачи паспорта" class="form-control"></p>
+                <p>Номер прав: <input type="text" th:value="${el.licnumb}" name="licnumb"
+                                      placeholder="Введите номер прав"
+                                      class="form-control"></p>
+                <p>Дата выдачи прав: <input type="date" th:value="${el.licissue}" name="licissue"
+                                            placeholder="Введите дату выдачи прав"
+                                            class="form-control"></p>
+                <p>Страна: <input type="text" th:value="${el.country}" name="country"
+                                  placeholder="Введите страну"
+                                  class="form-control"></p>
+                <p>Область: <input type="text" th:value="${el.region}" name="region"
+                                   placeholder="Введите регион"
+                                   class="form-control"></p>
+                <p>Город: <input type="text" th:value="${el.city}" name="city"
+                                 placeholder="Введите город"
+                                 class="form-control"></p>
+                <p>Адресс: <input type="text" th:value="${el.address}" name="address"
+                                  placeholder="Введите адресс"
+                                  class="form-control"></p>
+                <!--        textarea - полный текс или тип комент -->
+                <p>Комментарий к авто: <textarea th:value="${el.comments} " name="comments"
+                                                 placeholder="Введите комментарий"
+                                                 class="form-control"></textarea><br></p>
+                <button type="submit" class="btn btn-success">Обновить</button>
+                <br>
+            </form>
+        </form>
+    </div>
+</div>
+
+<div th:insert="home::footer"></div>
+</body>
+</html>

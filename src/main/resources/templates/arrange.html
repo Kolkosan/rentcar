@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/css/tablebutton.css">
+    <link rel="stylesheet" href="/css/butt.css">
+    <link rel="stylesheet" href="/css/butt2.css">
+    <link rel="stylesheet" href="/css/menuStyle.css">
+    <link rel="stylesheet" href="/css/popUpMenu.css">
+    <link rel="shortcut icon" href="/css/logo.ico">
+
+    <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+    <style>
+        #centerLayer {
+            margin-left: 15%; /* Отступ слева */
+            width: 70%; /* Ширина слоя */
+            background: #f2fff8; /* Цвет фона */
+            padding: 25px; /* Поля вокруг текста */
+        }
+    </style>
+</head>
+<body>
+<div th:insert="home::header"></div>
+<div id="centerLayer">
+    <form th:action="@{/blog/{id}/arrange}" method="post">
+        <div class="col-md-7 col-lg-8">
+            <div th:each="el : ${post}" class="alert alert-info mt-2">
+                <h3><img th:src="${el.photo}" width="260" height="170" alt="car"></h3>
+                <div>Марка автомобиля: <a th:text="${el.brand}"/></div>
+                <div>Класс автомобиля: <a th:text="${el.car_class}"/></div>
+                <div>Коробка передач: <a th:text="${el.transmission}"/></div>
+                <div>Цена за сутки: <a th:text="${el.cost_day}"/></div>
+                <div>Первоначальный взнос: <a th:text="${el.deposit}"/></div>
+                <div>Цвет: <a th:text="${el.color}"/></div>
+                <div>Количество посадочных мест: <a th:text="${el.seats}"/></div>
+            </div>
+
+            <h4 class="mb-3">Заказ автомобиля</h4>
+
+            <div class="row g-3">
+
+                <div class="col-sm-6" >
+                    <label  for="orderdate" class="form-label">Дата заказа</label>
+                    <input type="date" name="orderdate" value="Ожидание" id="orderdate"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6" >
+                    <label  for="returndate" class="form-label">Дата возврата</label>
+                    <input type="date" name="returndate" value="Ожидание" id="returndate"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="lastname" class="form-label">Фамилия</label>
+                    <input type="text" name="lastname" placeholder="Введите фамилию" id="lastname"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="firstname" class="form-label">Имя</label>
+                    <input type="text" name="firstname" placeholder="Введите имя" id="firstname"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="patronymic" class="form-label">Отчество</label>
+                    <input type="text" name="patronymic" placeholder="Введите отчество" id="patronymic"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" name="email" placeholder="Введите email - you@example.com" id="email"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="licnumb" class="form-label">Номер прав</label>
+                    <input type="text" name="licnumb" placeholder="Введите номер прав" id="licnumb"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="licissue" class="form-label">Дата выдачи прав</label>
+                    <input type="date" name="licissue" placeholder="Укажите дату" id="licissue"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="passnumb" class="form-label">Номер паспорта</label>
+                    <input type="text" name="passnumb" placeholder="Введите номер паспорта" id="passnumb"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="passissue" class="form-label">Дата выдачи паспорта</label>
+                    <input type="date" name="passissue" placeholder="Укажите дату" id="passissue"
+                           class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="country" class="form-label">Страна</label>
+                    <select type="text" name="country" id="country"
+                            class="form-select">
+                        <option value="">Выберите...</option>
+                        <option>Россия</option>
+                        <option>РБ</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label for="region" class="form-label">Область</label>
+                    <select type="text" name="region" id="region"
+                            class="form-select">
+                        <option value="">Выберите...</option>
+                        <option>Брестская область</option>
+                        <option>Витебская область</option>
+                        <option>Гомельская область</option>
+                        <option>Гродненская область</option>
+                        <option>Минская область</option>
+                        <option>Могилёвская область</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="city" class="form-label">Город</label>
+                    <select type="text" name="city" id="city"
+                            class="form-select">
+                        <option>Выберите...</option>
+                        <option>Брест</option>
+                        <option>Минск</option>
+                        <option>Гродно</option>
+                        <option>Лида</option>
+                        <option>Витебск</option>
+                        <option>Новых еще нету</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="address" class="form-label">Адресс</label>
+                    <input type="text" name="address" placeholder="ул.Пушкина д.10 кв.10" id="address"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="comments" class="form-label">Комментарий</label>
+                    <input type="text" name="comments" placeholder="Оставьте коментарий (необязательно)" id="comments"
+                           class="form-control">
+                </div>
+                <div hidden class="col-sm-6" >
+                    <label  for="consideration" class="form-label">Статус</label>
+                    <input type="hidden" name="consideration" value="Ожидание" id="consideration"
+                           class="form-control">
+                </div>
+                <hr class="my-4">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="save-info">
+                    <label class="form-check-label" for="save-info">Запомнить значения</label>
+                </div><br><br><br>
+                <button type="submit" class="btn btn-success">Оформить заказ</button>
+                <br>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--            <hr class="my-4">-->
+<!--            <div class="form-check">-->
+<!--                <input type="checkbox" class="form-check-input" id="save-info">-->
+<!--                <label class="form-check-label" for="save-info">Save this information for next time</label>-->
+<!--            </div>-->
+
+<!--            <hr class="my-4">-->
+
+<!--            <h4 class="mb-3">Payment</h4>-->
+
+<!--            <div class="my-3">-->
+<!--                <div class="form-check">-->
+<!--                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""-->
+<!--                           required="">-->
+<!--                    <label class="form-check-label" for="credit">Credit card</label>-->
+<!--                </div>-->
+<!--                <div class="form-check">-->
+<!--                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">-->
+<!--                    <label class="form-check-label" for="debit">Debit card</label>-->
+<!--                </div>-->
+<!--                <div class="form-check">-->
+<!--                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">-->
+<!--                    <label class="form-check-label" for="paypal">PayPal</label>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="row gy-3">-->
+<!--                <div class="col-md-6">-->
+<!--                    <label for="cc-name" class="form-label">Name on card</label>-->
+<!--                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">-->
+<!--                    <small class="text-muted">Full name as displayed on card</small>-->
+<!--                    <div class="invalid-feedback">-->
+<!--                        Name on card is required-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-md-6">-->
+<!--                    <label for="cc-number" class="form-label">Credit card number</label>-->
+<!--                    <input type="text" class="form-control" id="cc-number" placeholder="" required="">-->
+<!--                    <div class="invalid-feedback">-->
+<!--                        Credit card number is required-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-md-3">-->
+<!--                    <label for="cc-expiration" class="form-label">Expiration</label>-->
+<!--                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">-->
+<!--                    <div class="invalid-feedback">-->
+<!--                        Expiration date required-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-md-3">-->
+<!--                    <label for="cc-cvv" class="form-label">CVV</label>-->
+<!--                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">-->
+<!--                    <div class="invalid-feedback">-->
+<!--                        Security code required-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+</div>
+</form>
+</div>
+</form>
+</div>
+
+<div th:insert="home::footer"></div>
+</body>
+</html>
